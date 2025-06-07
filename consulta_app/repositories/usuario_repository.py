@@ -7,7 +7,7 @@ from consulta_app.schemas.usuario import UsuarioCreate
 
 
 def criar_usuario(usuario: UsuarioCreate, session: Session) -> Usuario:
-    novo_usuario = Usuario(**usuario.obj.model.dump())
+    novo_usuario = Usuario(**usuario.model_dump())
     session.add(novo_usuario)
     session.commit()
     session.refresh(novo_usuario)
